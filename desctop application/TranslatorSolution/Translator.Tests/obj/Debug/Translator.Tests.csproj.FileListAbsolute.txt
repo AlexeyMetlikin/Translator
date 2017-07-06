@@ -1,0 +1,10 @@
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Translator.Tests\bin\Debug\Translator.Tests.dll.config
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Translator.Tests\bin\Debug\Translator.Tests.dll
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Translator.Tests\bin\Debug\Translator.Tests.pdb
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Translator.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Translator.Tests\bin\Debug\Ttanslator.exe
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Translator.Tests\bin\Debug\Ttanslator.pdb
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Translator.Tests\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Translator.Tests\obj\Debug\Translator.Tests.csprojResolveAssemblyReference.cache
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Translator.Tests\obj\Debug\Translator.Tests.dll
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Translator.Tests\obj\Debug\Translator.Tests.pdb

@@ -1,0 +1,13 @@
+C:\Users\Alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Release\Ttanslator.exe.config
+C:\Users\Alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Release\Ttanslator.exe
+C:\Users\Alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Release\Ttanslator.pdb
+C:\Users\Alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Release\Newtonsoft.Json.dll
+C:\Users\Alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\Alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Release\Newtonsoft.Json.xml
+C:\Users\Alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\Alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\obj\Release\Translator.csprojResolveAssemblyReference.cache
+C:\Users\Alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\obj\Release\Ttanslator.Properties.Resources.resources
+C:\Users\Alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\obj\Release\Translator.TranslatorForm.resources
+C:\Users\Alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\obj\Release\Translator.csproj.GenerateResource.Cache
+C:\Users\Alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\obj\Release\Ttanslator.exe
+C:\Users\Alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\obj\Release\Ttanslator.pdb

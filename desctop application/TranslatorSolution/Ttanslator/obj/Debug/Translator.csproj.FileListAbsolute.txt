@@ -1,0 +1,13 @@
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Debug\Ttanslator.exe.config
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Debug\Ttanslator.exe
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Debug\Ttanslator.pdb
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Debug\Newtonsoft.Json.dll
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Debug\System.Net.Http.Formatting.dll
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Debug\Newtonsoft.Json.xml
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\bin\Debug\System.Net.Http.Formatting.xml
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\obj\Debug\Translator.csprojResolveAssemblyReference.cache
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\obj\Debug\Ttanslator.Properties.Resources.resources
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\obj\Debug\Translator.csproj.GenerateResource.Cache
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\obj\Debug\Ttanslator.exe
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\obj\Debug\Ttanslator.pdb
+c:\users\alexey\documents\visual studio 2015\Projects\TranslatorSolution\Ttanslator\obj\Debug\Translator.TranslatorForm.resources
