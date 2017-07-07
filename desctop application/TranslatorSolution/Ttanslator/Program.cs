@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Translator.Abstract;
+using Translator.Entities;
 
 namespace Translator
 {
@@ -16,7 +18,7 @@ namespace Translator
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new TranslatorForm());
+            Application.Run(new TranslatorForm(new TranslateAPI("https://translate.yandex.net")));
         }
     }
 }

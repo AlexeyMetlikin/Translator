@@ -5,6 +5,7 @@ using Translator.Abstract;
 using Translator.Entities;
 using Translator.Settings;
 using System.Net.Http;
+using System.Collections.Generic;
 
 namespace Translator.Tests
 {
@@ -12,17 +13,39 @@ namespace Translator.Tests
     public class FormMethodsTest
     {
         [TestMethod]
+        public void CanGetLanguages()
+        {
+            StreamWriter file = new StreamWriter(new FileStream("settings.ini", FileMode.Create, FileAccess.Write));
+            file.WriteLine("[API-Key]");
+            file.WriteLine("Key=Key");
+            file.Close();
+
+            IApiTranslator API = new TranslateAPIUnderTest("host");
+            TranslatorForm form = new TranslatorForm(API);
+
+            Assert.AreEqual(API.Languages.Count, 3);
+            Assert.AreEqual(API.Languages[0], new KeyValuePair<string, string>("en", "Английский"));
+            Assert.AreEqual(API.Languages[1], new KeyValuePair<string, string>("ru", "Русский"));
+            Assert.AreEqual(API.Languages[2], new KeyValuePair<string, string>("de", "Немецкий"));
+
+            File.Delete("settings.ini");
+        }
+
+        [TestMethod]
         public void CanDetectLang()
         {
             StreamWriter file = new StreamWriter(new FileStream("settings.ini", FileMode.Create, FileAccess.Write));
             file.WriteLine("[API-Key]");
-            file.WriteLine("Key=trnsl.1.1.20170705T051451Z.be2ac132d81993cd.d05ddc65d1cb87498519a919b46278f54265b15c");
+            file.WriteLine("Key=Key");
             file.Close();
 
-            TranslatorForm form = new TranslatorForm();
+            IApiTranslator API = new TranslateAPIUnderTest("host");
+
+            TranslatorForm form = new TranslatorForm(API);
 
             string lang = form.TryDetectLang("Привет");
 
+            Assert.IsNotNull(lang);
             Assert.AreEqual(lang, "Русский");
 
             File.Delete("settings.ini");
@@ -33,10 +56,12 @@ namespace Translator.Tests
         {
             StreamWriter file = new StreamWriter(new FileStream("settings.ini", FileMode.Create, FileAccess.Write));
             file.WriteLine("[API-Key]");
-            file.WriteLine("Key=trnsl.1.1.20170705T051451Z.be2ac132d81993cd.d05ddc65d1cb87498519a919b46278f54265b15c");
+            file.WriteLine("Key=Key");
             file.Close();
 
-            TranslatorForm form = new TranslatorForm();
+            IApiTranslator API = new TranslateAPIUnderTest("host");
+
+            TranslatorForm form = new TranslatorForm(API);
 
             string result = form.Translate("Test", "en", "ru");
 
@@ -45,37 +70,44 @@ namespace Translator.Tests
             File.Delete("settings.ini");
         }
 
-        [TestMethod]
-        public void CanTranslateTextWithAutoDetectLang()
+        private class TranslateAPIUnderTest : IApiTranslator
         {
-            StreamWriter file = new StreamWriter(new FileStream("settings.ini", FileMode.Create, FileAccess.Write));
-            file.WriteLine("[API-Key]");
-            file.WriteLine("Key=trnsl.1.1.20170705T051451Z.be2ac132d81993cd.d05ddc65d1cb87498519a919b46278f54265b15c");
-            file.Close();
+            public string API_Key { get; set; }
 
-            TranslatorForm form = new TranslatorForm();
+            public string Host { get; }
 
-            string result = form.Translate("Test", null, "ru");
+            public List<KeyValuePair<string, string>> Languages { get; }
 
-            Assert.AreEqual(result, "Тест");
+            public TranslateAPIUnderTest(string host)
+            {
+                this.Host = host;
+                Languages = new List<KeyValuePair<string, string>>();
+            }
 
-            File.Delete("settings.ini");
-        }
+            public void FillLanguages(string languages)
+            {
+                Languages.Add(new KeyValuePair<string, string>("en", "Английский"));
+                Languages.Add(new KeyValuePair<string, string>("ru", "Русский"));
+                Languages.Add(new KeyValuePair<string, string>("de", "Немецкий"));
+            }
 
-        [TestMethod]
-        [ExpectedException(typeof(ArgumentNullException))]
-        public void CannotTranslateTextWithoutLang()
-        {
-            StreamWriter file = new StreamWriter(new FileStream("settings.ini", FileMode.Create, FileAccess.Write));
-            file.WriteLine("[API-Key]");
-            file.WriteLine("Key=trnsl.1.1.20170705T051451Z.be2ac132d81993cd.d05ddc65d1cb87498519a919b46278f54265b15c");
-            file.Close();
+            public string SendRequest(string requestType, string request, List<KeyValuePair<string, string>> pars)
+            {
+                switch (request)
+                {
+                    case "/api/v1.5/tr.json/detect":
+                        return "{\"code\":200,\"lang\":\"ru\"}";
 
-            TranslatorForm form = new TranslatorForm();
+                    case "/api/v1.5/tr.json/translate":
+                        return "{\"code\":200,\"lang\":\"ru-en\",\"text\":[Тест]";
 
-            string result = form.Translate("Test", null, null);
+                    case "/api/v1.5/tr.json/getLangs":
+                        return "{\"dirs\":[\"ru-en\",\"ru-de\",\"en-ru\",\"en-de\",\"de-en\",\"de-ru\"],\"langs\":{\"ru\":\"Русский\",\"de\":\"Немецкий\",\"en\":\"Английский\"}}";
 
-            Assert.AreEqual(result, "");
+                    default:
+                        return null;
+                }
+            }
         }
     }
 }

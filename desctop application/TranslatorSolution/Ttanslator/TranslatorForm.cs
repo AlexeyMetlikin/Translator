@@ -21,10 +21,11 @@ namespace Translator
         private IniFile config = new IniFile("settings.ini");
 
         // создаем экземпляр класса TranslateAPI
-        private IApiTranslator API = new TranslateAPI("https://translate.yandex.net");
-        public TranslatorForm()
+        private IApiTranslator API;
+        public TranslatorForm(IApiTranslator API)
         {
             InitializeComponent();
+            this.API = API;
             ReadKey();                  // Считываем API-key из config-файл  
             GetLanguages();             // Получаем список языков из API
         }
@@ -127,6 +128,7 @@ namespace Translator
                         new KeyValuePair<string, string>( "key", API.API_Key )  // Ключ
                     };
                 var response = Send("POST", "/api/v1.5/tr.json/translate", pars);   // Выполняем запрос
+                
                 if (response != null)
                 {
                     translation += new Regex("\"text\":").Split(response)[1].Split('[', ']')[1].Replace("\"", "");  // Если запрос успешно выполнен - добавить перевод в результирующую строку
